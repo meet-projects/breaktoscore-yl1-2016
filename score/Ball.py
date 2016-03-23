@@ -1,15 +1,15 @@
 from turtle import *
-from Paddle import *
 class Ball(Turtle):
 	def __init__(self, x, y, radius, dx, dy, color="blue"):
 		Turtle.__init__(self)
 		self.penup()
 		self.color("blue",color)
 		self.goto(x,y)
-		self.radius = radius
+		self.radius = radius*20
 		self.dx = dx
 		self.dy = dy
 		self.shape("circle")
+		self.shapesize(radius,radius,2)
 
 	def get_radius(self):
 		return self.radius
@@ -24,11 +24,10 @@ class Ball(Turtle):
 	def set_dy(self, new_dy):
 		self.dy = new_dy
 	
-	def move(self,CANVAS_WIDTH,CANVAS_HEIGHT):
+	def move(self,WIDTH,HEIGHT):
 		self.goto(self.xcor()+self.dx , self.ycor()+self.dy)
-		if (self.xcor() > CANVAS_WIDTH/2) or (self.xcor() < CANVAS_WIDTH/-2):
+		if (self.xcor() > WIDTH) or (self.xcor() < -WIDTH):
 			self.dx=-self.dx 
-			return self.dx
-		if (self.ycor() > CANVAS_HEIGHT/2) :
+		if (self.ycor() > HEIGHT) :
 			self.dy=-self.dy
 		

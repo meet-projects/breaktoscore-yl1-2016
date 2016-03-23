@@ -6,8 +6,8 @@ class Paddle(Turtle):
 		self.color("blue",color)
 		self.goto(x,y)
 		self.dx = dx
-		self.width = width
-		self.height = height 
+		self.width = width*20
+		self.height = height*20 
 		self.shape("square")
 		self.shapesize(width,height,2)
 		self.pu()	
@@ -18,10 +18,6 @@ class Paddle(Turtle):
 	def set_dx(self, new_dx):
 		self.dx = new_dx
 	
-	def move(self,CANVAS_WIDTH,CANVAS_HEIGHT):
+	def move(self):
 		self.goto(self.xcor()+self.dx , self.ycor())
-		if (self.xcor() > CANVAS_WIDTH/2) or (self.xcor() < CANVAS_WIDTH/-2):
-			self.dx=-self.dx 
-			return self.dx
-		if (self.ycor() > CANVAS_HEIGHT/2) :
-			self.dy=-self.dy
+		self.dx = 0
